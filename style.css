@@ -1,0 +1,204 @@
+/* Importación de la fuente Inter de Google Fonts: Profesional y limpia */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    /* Paleta de colores: Definición de variables CSS */
+    --color-neon: #00FF41; /* Verde Neón para acentos */
+    --cv-dark-bg: #0A001F; /* Fondo Ultra Oscuro (casi negro con un toque violeta para profundidad) */
+    --cv-card-bg: #1A1A1A; /* Fondo de la tarjeta CV (contraste con el body) */
+    --cv-light-text: #E0E0E0; /* Texto principal claro */
+    --cv-secondary-text: #AAAAAA; /* Texto secundario/descripciones */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--cv-light-text);
+    line-height: 1.6;
+    background-color: var(--cv-dark-bg);
+    
+    /* EFECTO DE CUADRÍCULA ESTÁTICA (PCB/CIRCUITO) */
+    background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+                      linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+    background-size: 30px 30px; 
+    /* Esta cuadrícula actúa como Layer 2 */
+}
+
+/* ==================================================== */
+/* LAYOUT Y COLORES GENERALES */
+/* ==================================================== */
+
+/* Contenedor para el efecto de Lluvia de Código (tsParticles) */
+#tsparticles {
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2; /* Layer 1: El más profundo */
+}
+
+/* Asegura que el contenido esté sobre todo lo demás */
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Fondo de la Tarjeta CV */
+.bg-dark-card {
+    background-color: var(--cv-card-bg) !important;
+    border: 1px solid var(--color-neon); /* Borde sutil */
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); /* Resplandor neón */
+}
+
+/* Títulos y Acentos */
+.text-blue-custom {
+    color: var(--color-neon) !important;
+}
+
+/* Definición de las clases personalizadas para texto */
+.text-light-custom {
+    color: var(--cv-light-text) !important;
+}
+.text-secondary-custom {
+    color: var(--cv-secondary-text) !important;
+}
+
+/* Fuerza el color para los enlaces en el div de contacto */
+.contact-info a {
+    color: var(--cv-light-text) !important;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    color: var(--color-neon) !important; /* Sugerencia: color neón al pasar el mouse */
+}
+
+/* Estilo para las fechas de proyecto (Mejora de visibilidad) */
+.entry-date {
+    color: var(--cv-light-text) !important; /* Se asegura el color blanco */
+    font-weight: 500; /* Lo hace un poco más grueso */
+    font-size: 0.9rem; /* Le da un tamaño legible */
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--color-neon);
+    padding-bottom: 5px;
+}
+
+/* Lista personalizada (viñetas verdes) */
+.custom-list-style li:before {
+    content: "•"; 
+    color: var(--color-neon); 
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-weight: bold;
+}
+
+/* 🟢 SOLUCIÓN DE VISIBILIDAD DE HABILIDADES 🟢 */
+.custom-skills-list .list-group-item {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    color: var(--cv-light-text) !important;
+}
+
+.custom-skills-list .list-group-item:nth-child(even) {
+    background-color: #2a2a2a !important;
+}
+.custom-skills-list .list-group-item:nth-child(odd) {
+    background-color: #222222 !important;
+}
+
+/* Badges de nivel de habilidad (Verde) */
+.text-bg-primary {
+    background-color: var(--color-neon) !important;
+    color: #000 !important;
+}
+.text-bg-secondary {
+    background-color: #555 !important;
+}
+
+/* Botones de GitHub (Verde neón en contorno) */
+.btn-outline-primary {
+    color: var(--color-neon);
+    border-color: var(--color-neon);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-neon);
+    border-color: var(--color-neon);
+    color: #000;
+    box-shadow: 0 0 15px var(--color-neon); 
+}
+
+/* ==================================================== */
+/* TERCER Y CUARTO ELEMENTO EN MOVIMIENTO (Layer 3) */
+/* ==================================================== */
+
+/* 1. Microchips Buscador de Ruta y Componentes */
+.pathfinder-mover, .component-mover { 
+    position: fixed; /* Soluciona el espaciado en la página */
+    font-size: 2rem;
+    animation-name: pulse-glow;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 5; 
+    pointer-events: none;
+}
+#pathfinder-mover-1 { animation-duration: 2.2s; }
+#pathfinder-mover-2 { animation-duration: 2.5s; font-size: 1.5rem; }
+#pathfinder-mover-3 { animation-duration: 1.8s; font-size: 2.5rem; }
+
+
+/* 2. Bit de Datos */
+#bit-mover {
+    position: fixed; /* Soluciona el espaciado en la página */
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-neon);
+    animation: pulse-glow 1s infinite alternate; 
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 3px var(--color-neon);
+        text-shadow: 0 0 8px var(--color-neon);
+    }
+    to {
+        box-shadow: 0 0 15px var(--color-neon);
+        text-shadow: 0 0 30px var(--color-neon);
+    }
+}
+
+
+/* ==================================================== */
+/* COMPATIBILIDAD MÓVIL (RESPONSIVE) */
+/* ==================================================== */
+@media (max-width: 767.98px) {
+    .container {
+        padding: 1.5rem !important;
+    }
+    .display-4 {
+        font-size: 2rem !important;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    .entry-date {
+        display: block; 
+        font-size: 0.85rem;
+        margin-top: 0.2rem;
+    }
+    /* Ocultar elementos demasiado grandes en pantallas muy pequeñas */
+    .pathfinder-mover:nth-child(2), #pathfinder-mover-3 {
+        display: none; 
+    }
+}
